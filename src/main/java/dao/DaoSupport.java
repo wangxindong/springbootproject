@@ -2,6 +2,7 @@ package dao;
 
 import org.mybatis.spring.SqlSessionTemplate;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
@@ -13,8 +14,9 @@ import java.util.Map;
  */
 public class DaoSupport implements Dao {
 
-
+    @Resource(name = "sqlSessionTemplate")
     private SqlSessionTemplate template;
+
     @Override
     public <T> T save(String str, T t) throws Exception {
         return null;

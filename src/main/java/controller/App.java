@@ -5,16 +5,17 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import utils.PageData;
 
 /**
  * Created with IntelliJ IDEA.
  * User: wangxindong
  * Date: 2017/3/14
- * Time: 20:41
+ * Time: 20:41classpath:mapper/*.xml
  */
 @Controller
 @EnableAutoConfiguration
-public class App {
+public class App extends BaseController {
 
     @RequestMapping(value = "/")
     @ResponseBody
@@ -22,9 +23,11 @@ public class App {
         return "hello spring boot";
     }
 
-    @RequestMapping(value = "/hi/{name}")
+    @RequestMapping(value = "/hi")
     @ResponseBody
     String home(String name) {
+        PageData pd = getPageData();
+        System.out.println(pd);
         return "hello" + name;
     }
 
